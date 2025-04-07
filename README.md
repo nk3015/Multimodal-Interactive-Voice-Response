@@ -1,13 +1,19 @@
 # Multimodal Interactive Voice Response
 
-TTS - Coqui TTS Bark
+![Project Status](https://badgen.net/badge/Project%20Status/Closed/purple)
 
-GUI - PyQt
 
 Closed Logic Systems using Tooling nullifying Open Ended Question Paths
 
-ASR - ??
 
-LLM - ??
+Explored Space:
 
-DM - ??
+TTS - Coqui TTS Bark, Hume's Octave, gTTS, pyttsx3
+
+GUI - PyQt. tkinter, markup
+
+ASR - Whisper
+
+LLM - TinyLlama
+
+DM - State Machine
