@@ -1,0 +1,65 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+export default function App() {
+  const [screen, setScreen] = useState(1);
+  const [selectedJourney, setSelectedJourney] = useState(null);
+  const [selectedModality, setSelectedModality] = useState(null);
+
+  const journeys = ["Airline", "Hospital", "Bank", "Uber Eats"];
+  const modalities = ["GUI Only", "Voice Only", "GUI + Voice"];
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+      {screen === 1 && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="w-full max-w-md"
+        >
+          <Card className="p-4 text-center">
+            <h2 className="text-xl font-bold mb-4">Customer Interaction Journeys</h2>
+            {journeys.map((journey) => (
+              <Button
+                key={journey}
+                className="w-full mb-2"
+                onClick={() => {
+                  setSelectedJourney(journey);
+                  setScreen(2);
+                }}
+              >
+                {journey}
+              </Button>
+            ))}
+          </Card>
+        </motion.div>
+      )}
+      {screen === 2 && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="w-full max-w-md"
+        >
+          <Card className="p-4 text-center">
+            <h2 className="text-xl font-bold mb-4">Choose Modality</h2>
+            {modalities.map((modality) => (
+              <Button
+                key={modality}
+                className="w-full mb-2"
+                onClick={() => {
+                  setSelectedModality(modality);
+                  alert(`Selected: ${selectedJourney} -> ${modality}`);
+                }}
+              >
+                {modality}
+              </Button>
+            ))}
+            <Button className="mt-4" onClick={() => setScreen(1)}>Back</Button>
+          </Card>
+        </motion.div>
+      )}
+    </div>
+  );
+}

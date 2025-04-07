@@ -1,0 +1,18 @@
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        async function fileDemo() {
+            // Write a file
+            await puter.fs.write('hello.txt', 'Hello, Puter!');
+            puter.print('File written successfully<br>');
+
+            // Read the file
+            const fileContent = await puter.fs.read('hello.txt');
+            puter.print('File content: ', await fileContent.text(), '<br>');
+        }
+
+        fileDemo();
+    </script>
+</body>
+</html>

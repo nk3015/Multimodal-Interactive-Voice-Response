@@ -1,0 +1,21 @@
+<html>
+<body>
+    <textarea id="text-input" rows="4" cols="50">Hello, world! This is text-to-speech using Puter.js.</textarea>
+    <br>
+    <button id="speak-button">Speak</button>
+
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        document.getElementById('speak-button').addEventListener('click', () => {
+            const text = document.getElementById('text-input').value;
+            puter.ai.txt2speech(text)
+                .then((audio) => {
+                    audio.play();
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>

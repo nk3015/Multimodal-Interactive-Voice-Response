@@ -1,0 +1,63 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    color: #005a9c;
+}
+
+#ivr-display {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    min-height: 50px;
+}
+
+/* Buttons */
+button {
+    font-size: 1em;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#call-button {
+    background-color: #005a9c;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    width: 100px;
+    height: 50px;
+    font-size: 1.2em;
+    animation: pulse 1.5s infinite;
+}
+
+#end-call-button {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Pulsing Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

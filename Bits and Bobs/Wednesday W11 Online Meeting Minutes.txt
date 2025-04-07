@@ -1,0 +1,34 @@
+Meeting 26/3/25 Wednesday W11 (Online)
+
+Attended by: Anhad, Manoj, Nick, Umut
+
+IVR Flows: Uber Eats, Bank, Airport
+
+Manoj will draw the final system architecture,
+just like the one in the lecture slides.
+A simple diagram.
+
+He says he will discuss with Neelash and make a pipeline.
+
+Anhad started on the report on the basis of a lot of essential literature wherein he has determined material on multimodality, IVRs and the content Pranav has given.
+
+Confirmed Evaluation has to happen in this coming week.
+
+Final project demonstration on Monday morning 9am (7-min video + 6 slides). Show features, architecture, NLP modules, interesting findings and results.
+
+Realized we should have kept a devlog,
+to improve involvement among the group members.
+
+Spoke regarding attending other teams evaluations tomorrow.
+
+Umut evaluated our updates. He has Rasa Pro and seeking .yml files for dialogue management. 
+
+Everyone can chip in on the report.
+
+Keep posted.
+
+Manoj says we're developing a website as Prof. Aylett requested because we don't want to open the terminal and run scripts as that is not typical end-user behaviour. 
+
+Assimilate everything soon.
+
+Umut asked for progress accountance. Approves daily meeting in evening.

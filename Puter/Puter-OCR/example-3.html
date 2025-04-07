@@ -1,0 +1,96 @@
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    
+    <div>
+        <h3>Batch OCR Processing</h3>
+        <input type="file" id="image-input" accept="image/*" multiple>
+        <button onclick="processBatch()">Process All Images</button>
+        
+        <div id="progress"></div>
+        
+        <div style="margin-top: 20px;">
+            <h4>Results:</h4>
+            <div id="results"></div>
+        </div>
+        
+        <button onclick="saveResults()" id="save-button" style="display: none;">
+            Save Results
+        </button>
+    </div>
+
+    <script>
+        let processedResults = [];
+
+        // Convert File to data URL
+        function fileToDataURL(file) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.readAsDataURL(file);
+            });
+        }
+
+        async function processBatch() {
+            const files = document.getElementById('image-input').files;
+            if (files.length === 0) {
+                alert('Please select some images first');
+                return;
+            }
+
+            const progress = document.getElementById('progress');
+            const results = document.getElementById('results');
+            results.innerHTML = '';
+            processedResults = [];
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                progress.textContent = `Processing image ${i + 1} of ${files.length}...`;
+
+                try {
+                    // Convert to data URL first
+                    const dataUrl = await fileToDataURL(file);
+                    const text = await puter.ai.img2txt(dataUrl);
+                    
+                    // Store result
+                    processedResults.push({
+                        filename: file.name,
+                        text: text,
+                        timestamp: new Date().toISOString()
+                    });
+
+                    // Display result
+                    results.innerHTML += `
+                        <div style="margin-bottom: 20px;">
+                            <strong>${file.name}</strong>
+                            <pre>${text || 'No text found'}</pre>
+                        </div>
+                    `;
+                } catch (error) {
+                    results.innerHTML += `
+                        <div style="margin-bottom: 20px; color: red;">
+                            <strong>${file.name}</strong>: Error - ${error.message}
+                        </div>
+                    `;
+                }
+            }
+
+            progress.textContent = 'All images processed!';
+            document.getElementById('save-button').style.display = 'block';
+        }
+
+        async function saveResults() {
+            try {
+                const resultsText = processedResults.map(result => 
+                    `File: ${result.filename}\nTimestamp: ${result.timestamp}\n\n${result.text}\n\n---\n\n`
+                ).join('');
+
+                await puter.fs.write('ocr-results.txt', resultsText);
+                alert('Results saved to ocr-results.txt');
+            } catch (error) {
+                alert('Error saving results: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

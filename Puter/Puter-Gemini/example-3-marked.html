@@ -1,0 +1,61 @@
+# Not working
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Renderer</title>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <script src="https://js.puter.com/v2/"></script>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        const md = window.markdownit();
+        async function streamResponses() {
+            const outputDiv = document.getElementById('output');
+            
+            // Gemini 2.0 Flash with streaming
+            outputDiv.innerHTML += '<h2>Gemini 2.0 Flash Response:</h2>';
+            const flash2Response = await puter.ai.chat(
+                "Explain the process of photosynthesis in detail", 
+                {
+                    model: 'gemini-2.0-flash',
+                    stream: true
+                }
+            );
+            
+            let flash2Content = '';
+            for await (const part of flash2Response) {
+                if (part?.text) {
+                    flash2Content += part.text;
+                    outputDiv.innerHTML = outputDiv.innerHTML.replace(/<h2>Gemini 2.0 Flash Response:<\/h2>.*<h2>/s, `<h2>Gemini 2.0 Flash Response:</h2>${md.render(flash2Content)}<h2>`);
+                }
+            }
+            
+            // Gemini 1.5 Flash with streaming
+            outputDiv.innerHTML += '<h2>Gemini 1.5 Flash Response:</h2>';
+            const flash1Response = await puter.ai.chat(
+                "Explain the process of photosynthesis in detail", 
+                {
+                    model: 'gemini-1.5-flash',
+                    stream: true
+                }
+            );
+            
+            let flash1Content = '';
+        
+            for await (const part of flash1Response) {
+                if (part?.text) {
+                    flash1Content += part.text;
+                    outputDiv.innerHTML = outputDiv.innerHTML.replace(/<h2>Gemini 1.5 Flash Response:<\/h2>.*<\/div>/s, `<h2>Gemini 1.5 Flash Response:</h2>${md.render(flash1Content)}</div>`);
+                }
+            }
+            console.log(flash1Content)
+        }
+
+        streamResponses();
+    </script>
+</body>
+</html>

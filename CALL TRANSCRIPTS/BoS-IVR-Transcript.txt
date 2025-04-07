@@ -1,0 +1,51 @@
+<announcement> <!--  message about app -->
+We are excited to announce we are gradually releasing BoS app to our customers.
+You can still complete everything you can today and benefit from an improved in-app experience.
+This will make managing your account easier.
+Our in-app search and messaging functionality will be able to support you if there's something you're searching for.
+</announcement>
+
+Welcome to the Bank of Scotland. 
+So that we can get you to the right place, please state the reason for your call.
+
+To hear your Balance, press 1
+For your Self-Service option, press #
+Otherwise, please say the Reason for your call
+
+And what do you want to speak to the advisor about?
+
+I didn't recognize the reason for your call.
+
+In ... 
+
+Sorry, I am unable to determine the reason for your call today.
+Otherwise, please call us back later.
+
+You can also use online banking services 
+Or message us directly from the support section of the mobile banking app.
+
+And what's your specific enquiry
+
+Please say why you're calling
+
+I'll need to identify you, please give your account or
+
+Do you have an account ?
+
+Do you have your account details to hand
+
+If you have your account details to hand, press 1, else 2
+
+Okay, let's try a different way.
+
+Can we contact you on this number to take part in a Short automated survey
+
+Say 'yes' or 'no'
+
+You may be asked to take part again in future.
+
+I will transfer you now.
+
+Update your telephone number online
+
+Thanks for calling, goodbye!

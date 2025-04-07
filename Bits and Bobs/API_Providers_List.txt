@@ -1,0 +1,18 @@
+API providers for Claude 3.7 Sonnet
+
+OpenRouter
+Anthropic
+AWS Bedrock
+OpenAI Compatible
+GCP Vertex AI
+Google Gemini
+DeepSeek
+Mistral
+OpenAI
+VS Code LM API (GH Copilot etc.)
+Requesty
+Together
+Alibaba Qwen
+LM Studio
+Ollama
+LiteLLM

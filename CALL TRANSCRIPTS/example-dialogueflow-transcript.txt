@@ -1,0 +1,109 @@
+Industry-Compliant Multimodal IVR System Dialogue Flow
+
+1. Greeting & Authentication
+
+Voice:
+
+"Welcome to Omni Bank. For security purposes, please enter or say your account number."
+
+System verifies user with multi-factor authentication (MFA) (e.g., OTP, biometric verification).
+
+"Thank you. How can I assist you today?"
+
+Visual Transition:
+
+Display: "Welcome, [User Name]! Secure session started. Choose an option below."
+
+Options: [Check Balance] [Transfer Funds] [Bill Payment] [Speak to an Agent]
+
+2. Main Menu & Intent Recognition
+
+Voice:
+
+"You can say ‘Check my balance’, ‘Transfer money’, or ‘Speak to a representative’."
+
+System detects intent and applies data encryption for sensitive requests.
+
+Visual:
+
+Dynamically generated menu based on compliance regulations and user permissions.
+
+3. Task Execution Example: Checking Balance
+
+Voice:
+
+"For security reasons, your balance will be sent securely. Would you like to hear it or view it on your device?"
+
+(User chooses ‘View it’)
+
+Visual Transition:
+
+"Your current balance is: $5,432.87 (Displayed securely in the app/web with masked sensitive details)"
+
+"For detailed transactions, please authenticate again."
+
+4. Task Execution Example: Transferring Money
+
+Voice:
+
+"Please say or enter the recipient’s name or account number."
+
+"For security, verify with [OTP/Voice Authentication]."
+
+"How much would you like to transfer?"
+
+"Would you like to confirm this transfer of $200 to John Doe?"
+
+(User confirms)
+
+"Your transfer is being processed. A receipt will be sent to your registered email. Do you need anything else?"
+
+Visual Transition:
+
+"Transaction Successful! Reference No: 123456789"
+
+Button: [Make Another Transfer] [Main Menu] [End Call]
+
+5. Error Handling & Recovery
+
+Voice:
+
+"I'm sorry, I didn’t catch that. Could you repeat it? Or say 'Help' for assistance."
+
+"For security reasons, after three failed attempts, you will be redirected to an agent."
+
+Visual:
+
+"We couldn’t process your request. Please check your input or try again."
+
+Options: [Retry] [Help] [Speak to Agent]
+
+Security alert notification sent for unusual activity.
+
+6. Human Agent Handover
+
+Voice:
+
+"Connecting you to a representative now. Your conversation will be recorded for compliance."
+
+Provide estimated wait time and secure live agent authentication.
+
+Visual:
+
+"You are in queue. Estimated wait time: 3 minutes."
+
+"Secure chat is available while you wait."
+
+7. Call Closure & Compliance
+
+Voice:
+
+"Thank you for banking with Omni Bank. Your session is now securely ended."
+
+Visual:
+
+"Session Ended. For security, always log out after transactions. Need assistance? Contact support at 1800-123-456."
+
+Auto-log out after a period of inactivity.
+
+This updated flow ensures compliance with industry regulations (e.g., GDPR, PCI DSS, HIPAA if applicable) by implementing multi-factor authentication, data encryption, error handling, and secure handovers

@@ -1,0 +1,72 @@
+Collected a list of IVRs accessible through phoneline here.
+
+Manually collected voice flow to reach human agent at Bank of Scotland.
+
+To collect more customer journeys, tried to automate the scraping of known public IVRs
+but Twilio was an issue due to documents being rejected for Regulatory Bundle application.
+
+[insert image here]
+
+Started Account with Azure
+Played with STT and TTS successfully.
+Struggled with Cognitive Services, got access to davinci-003 model for text generation under Azure OpenAI section.
+Cancelled subscription on basis of subscription cost.
+Tried to set up a common workspace using virtual machine (Azure VM) but this required an experience overhead I was not aware of.
+Ticket issued with ISHelp but did not pursue as funds needed to be allocated once again by ISHelp during our 11th hour.
+
+In meeting, sped through Literature associated with the main papers provided. Collected several resources from References list. 
+
+Also collected a lot of keys as if I was Super-Mario :) ka-ching!
+Gotten Gemini API Key, made Svelte-based Chat App.
+Gotten OpenAI API Key. Gotten Hume API Key. Made Rudimentary Voice Chat Interface with that. (code not available, easily reproducible)
+Tested LMStudio, Mysty and Ollama.
+Failed to set up SillyTavern (this was to possibly add a virtual character agent to the screen as well - did not go well at all) and was considered again when speech-graphics
+
+[image of svelte chat]
+
+Communicated with Borsch, author of the rollcage repo, from the Ollama internet server who infodumped regarded all aspects of AI based on LLM, could not follow through as he initially wanted to see a RAG based system with MySQL and he later provided code for a local chat system like the many tested. This was supposed to be a point of inspiration, but more a peek into how dauntingly taxing this domain is.
+
+In the IVR team, I kept pushing for telephone aspect of this project rather than synthetic simulation over desktop and touchscreen.
+And for the literature team to inform the development and design process.
+This did not happen as I realized 90% of the development happens in the last few seconds (I exaggerate) before the deadline, for the students I atleast have encountered. This is obviously not a universal story.
+
+26/3 Started account with MS Copilot Studio.
+https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio/
+Agent was to tough to set up and bring into an interface.
+
+Also, considered Vapi and Blandy but was not sure how to integrate with GUI components. 
+Fantasized for days about how to implement a Gibberlink system in this context, 
+but by that time became too tired to do development work overall.
+
+Performed comparison study of TTS with team members.
+Looked at factors such as delay, naturalness and likability.
+We looked at Azure TTS, Hume's Octave and Suno's Bark.
+Settled on best fit which was Coqui TTS toolkit which uses Bark TTS internally.
+https://github.com/coqui-ai/TTS
+
+Attempted to make flows for Airport case, but could not integrate with Neelesh's architecture.
+Instead made many many many GUI designs painstakingly by hand using classical vanilla HTML5, CSS3 and JS before presenting the participant screens.
+Invented a novel way by which screens are changed through JSON data over JS on DOM. 
+I assumed this was a typical method but found no supporting evidence that it has been used in GUIs interacting with IVR systems.
+
+Converted Shankar's Figma UI to HTML, mainly employed vercel's v0 as manual creation was more taxing than generation.
+Had an idea to use LangGraph's Generational UI with a GraphQL db but did not have time or patience to learn and implement such a nuanced thing.
+
+By the 10th week meeting, made and showed a Dialpad with DMTF tones and ASR Spectrogram and Chromium Native speech synthesis. 
+A request was made to incorporate this dialpad into the Uber Eats demo but markup does not transpile into tkinter ui easily (or even at all).
+So, it was proposed to use QtWebEngine to solve that issue but did not pursue as we feared such a content frame 
+would lead to event management in the voice operation not to align. By that time, we had no complete cohesion of the pieces of the system anymore.
+
+We came to use the following: TinyLlama, pyttsx3, fastwhisper ...
+
+Finally, Neelash proposed Anthropic's System Control with TTS and Speech Recognition.
+I was essentially the sounding board for core team's ideas and personal anecdotes.
+
+Manoj said not to investigate into PBX further since Python script was already simulating enough.
+So, did not proceed to look into Asterisk or any such solution. Instead gave up on the telephone line completely.
+
+VoIP was another option but WebRTC needed something called IceCandidates and investigating that further turned it needed special servers.
+While it was easy to set up getUserMedia() setup, transmitting it required some third party service for the signalling server.
+
+Notes on the development:
+For the developer environment, I mainly used Microsoft's VSCode, maxed out the Github copilot tokens on autocompletions and continued with a reliance on ctrl+f on the multitude of documentations (document chat was not an option in my setup) and multiple large language models such as DeepSeek, Claude, ChatGPT and on occassion MS Copilot Edge sidebar and Copilot-key native client. (aside: One cannot have a course that deals with LLMs and not expect it to be used). Mistral, Qwen and Llama were also considered but not used due to exhaustion. The way these were used was any generation would yield a rabbit hole of errors. I found passing the errors over and over did not yield good results. So, partially correct outputs were passed from LLM's webclient to another until a close enough approximation tothe desired result was gotten and manually corrected what needed correction. Other group members had paid versions of ChatGPT and Claude which yielded them thousands of lines of code, while I was limited to mere hundreds (which was more manageable) but did not meet the mark of expected output.

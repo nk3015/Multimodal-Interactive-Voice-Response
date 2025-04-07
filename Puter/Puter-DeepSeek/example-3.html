@@ -1,0 +1,45 @@
+<html>
+<body>
+    <div id="output"></div>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        async function streamResponse() {
+            const outputDiv = document.getElementById('output');
+            
+            // DeepSeek Chat with streaming
+            outputDiv.innerHTML += '<h2>DeepSeek Chat Response:</h2>';
+            const chatResponse = await puter.ai.chat(
+                "Explain the significance of dark matter in the universe", 
+                {
+                    model: 'deepseek-chat',
+                    stream: true
+                }
+            );
+            
+            for await (const part of chatResponse) {
+                if (part?.text) {
+                    outputDiv.innerHTML += part.text;
+                }
+            }
+            
+            // DeepSeek Reasoner with streaming
+            outputDiv.innerHTML += '<h2>DeepSeek Reasoner Response:</h2>';
+            const reasonerResponse = await puter.ai.chat(
+                "Explain the significance of dark matter in the universe", 
+                {
+                    model: 'deepseek-reasoner',
+                    stream: true
+                }
+            );
+            
+            for await (const part of reasonerResponse) {
+                if (part?.text) {
+                    outputDiv.innerHTML += part.text;
+                }
+            }
+        }
+
+        streamResponse();
+    </script>
+</body>
+</html>

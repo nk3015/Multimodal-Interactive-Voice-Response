@@ -1,0 +1,15 @@
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        puter.ai.chat(
+            "What would be the environmental impact of replacing all cars with electric vehicles? Consider both positive and negative effects.", 
+            {
+                model: 'deepseek-reasoner'
+            }
+        ).then(response => {
+            document.write(response.message.content);
+        });
+    </script>
+</body>
+</html>

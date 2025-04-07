@@ -1,0 +1,7 @@
+{
+    "welcome": "Welcome to Airplane Status Inquiry. Please say 'Check status', 'Flight schedule', or 'Exit'.",
+    "checkStatus": "Please provide your flight number.",
+    "flightSchedule": "Please provide your destination.",
+    "exit": "Thank you for using Airplane Status Inquiry. Goodbye!",
+    "invalidOption": "Invalid option. Please say 'Check status', 'Flight schedule', or 'Exit'."
+}

@@ -1,0 +1,35 @@
+[ ] take orders for uber-eats 
+or 
+JustEats using ivr, 
+either by call or WhatsApp bot, 
+
+if call, audio-text to text model
+or 
+if WhatsApp, vision model [X]
+
+[ ] Literature
+
+llava, llama
+[added modality - vision]
+
+streamlit
+
+11am IVR
+
+-
+
+[ ] How does a deaf man make a voice call?
+Telecommunications Relay Service (TRS). They might also use a TTY (text telephone) ..Text Telephones (TTY/TDD) or Video Relay Services (VRS)
+
+[ ] How does a blind man use a GUI app?
+ screen readers (like VoiceOver, NVDA, or JAWS)
+
+-
+
+> automated IVR flow creation. (Shaik et al)
+
+- swr api calls
+- use swr
+react query
+
+create api

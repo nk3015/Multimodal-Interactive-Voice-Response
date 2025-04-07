@@ -1,0 +1,45 @@
+<html>
+<body>
+    <div id="output"></div>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        async function streamResponses() {
+            const outputDiv = document.getElementById('output');
+            
+            // Gemini 2.0 Flash with streaming
+            outputDiv.innerHTML += '<h2>Gemini 2.0 Flash Response:</h2>';
+            const flash2Response = await puter.ai.chat(
+                "Explain the process of photosynthesis in detail", 
+                {
+                    model: 'gemini-2.0-flash',
+                    stream: true
+                }
+            );
+            
+            for await (const part of flash2Response) {
+                if (part?.text) {
+                    outputDiv.innerHTML += part.text.replaceAll('\n', '<br>');
+                }
+            }
+            
+            // Gemini 1.5 Flash with streaming
+            outputDiv.innerHTML += '<h2>Gemini 1.5 Flash Response:</h2>';
+            const flash1Response = await puter.ai.chat(
+                "Explain the process of photosynthesis in detail", 
+                {
+                    model: 'gemini-1.5-flash',
+                    stream: true
+                }
+            );
+            
+            for await (const part of flash1Response) {
+                if (part?.text) {
+                    outputDiv.innerHTML += part.text.replaceAll('\n', '<br>');
+                }
+            }
+        }
+
+        streamResponses();
+    </script>
+</body>
+</html>

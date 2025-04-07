@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .chat-app {
+            display: flex;
+            height: 80vh;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        /* Users panel */
+        .users-panel {
+            width: 250px;
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+        
+        .users-panel h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .users-list {
+            list-style: none;
+        }
+        
+        .users-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-status {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: var(--success);
+            border-radius: 50%;
+            margin-right: 0.75rem;
+        }
+        
+        /* Chat area */
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+        
+        .chat-header {
+            padding: 1.5rem;
+            background: var(--secondary);
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+        
+        .message {
+            margin-bottom: 1.5rem;
+            max-width: 70%;
+        }
+        
+        .message-incoming {
+            align-self: flex-start;
+        }
+        
+        .message-outgoing {
+            align-self: flex-end;
+            text-align: right;
+        }
+        
+        .message-content {
+            display: inline-block;
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            position: relative;
+            line-height: 1.4;
+        }
+        
+        .message-incoming .message-content {
+            background: #f1f1f1;
+            color: var(--dark);
+            border-top-left-radius: 0;
+        }
+        
+        .message-outgoing .message-content {
+            background: var(--accent);
+            color: white;
+            border-top-right-radius: 0;
+        }
+        
+        .message-username {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            font-size: 0.85rem;
+        }
+        
+        .message-time {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 0.25rem;
+        }
+        
+        .message-outgoing .message-time {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .notification {
+            text-align: center;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+            color: #999;
+        }
+        
+        /* Input area */
+        .input-area {
+            padding: 1rem;
+            background: white;
+            border-top: 1px solid #eee;
+            display: flex;
+        }
+        
+        #message-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 24px;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s;
+        }
+        
+        #message-input:focus {
+            border-color: var(--accent);
+        }
+        
+        #send-button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            padding: 0 1.5rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        #send-button:hover {
+            background: #c0392b;
+        }
+        
+        /* Login form */
+        .login-container {
+            max-width: 400px;
+            margin: 5rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .login-container h1 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        #username-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 24px;
+            font-family: inherit;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            outline: none;
+        }
+        
+        #login-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            padding: 0.75rem 2rem;
+            font-family: inherit;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        #login-button:hover {
+            background: var(--secondary);
+        }
+        
+        .error-message {
+            color: var(--accent);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="login-container" class="login-container">
+            <h1>Welcome to Luxury Chat</h1>
+            <input type="text" id="username-input" placeholder="Choose your username">
+            <button id="login-button">Enter Chat</button>
+            <div id="error-message" class="error-message">Username is already taken</div>
+        </div>
+        
+        <div id="chat-app" class="chat-app" style="display: none;">
+            <div class="users-panel">
+                <h2>Online Users</h2>
+                <ul id="users" class="users-list"></ul>
+            </div>
+            
+            <div class="chat-area">
+                <div class="chat-header">
+                    <h2>Luxury Chat</h2>
+                </div>
+                
+                <div id="messages" class="messages"></div>
+                
+                <div class="input-area">
+                    <input type="text" id="message-input" placeholder="Type your message...">
+                    <button id="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        let currentUser = '';
+        
+        // DOM elements
+        const loginContainer = document.getElementById('login-container');
+        const chatApp = document.getElementById('chat-app');
+        const usernameInput = document.getElementById('username-input');
+        const loginButton = document.getElementById('login-button');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+        const messagesContainer = document.getElementById('messages');
+        const usersList = document.getElementById('users');
+        const errorMessage = document.getElementById('error-message');
+        
+        // Join chat
+        loginButton.addEventListener('click', joinChat);
+        usernameInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') joinChat();
+        });
+        
+        function joinChat() {
+            const username = usernameInput.value.trim();
+            if (username) {
+                socket.emit('join', username);
+            }
+        }
+        
+        // Send message
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (message) {
+                addMessage(currentUser, message, true);
+                socket.emit('send-message', message);
+                messageInput.value = '';
+            }
+        }
+        
+        sendButton.addEventListener('click', sendMessage);
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        // Add message to chat
+        function addMessage(username, message, isOutgoing = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isOutgoing ? 'message-outgoing' : 'message-incoming'}`;
+            
+            const usernameDiv = document.createElement('div');
+            usernameDiv.className = 'message-username';
+            usernameDiv.textContent = username;
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.textContent = message;
+            
+            const timeDiv = document.createElement('div');
+            timeDiv.className = 'message-time';
+            timeDiv.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            messageDiv.appendChild(usernameDiv);
+            messageDiv.appendChild(contentDiv);
+            messageDiv.appendChild(timeDiv);
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        // Add notification
+        function addNotification(text) {
+            const notificationDiv = document.createElement('div');
+            notificationDiv.className = 'notification';
+            notificationDiv.textContent = text;
+            messagesContainer.appendChild(notificationDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        // Update users list
+        function updateUsersList(users) {
+            usersList.innerHTML = '';
+            users.forEach(user => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span class="user-status"></span>${user}`;
+                usersList.appendChild(li);
+            });
+        }
+        
+        // Socket event listeners
+        socket.on('welcome', (message) => {
+            currentUser = usernameInput.value.trim();
+            loginContainer.style.display = 'none';
+            chatApp.style.display = 'flex';
+            messageInput.focus();
+            addNotification(message);
+        });
+        
+        socket.on('username-taken', () => {
+            errorMessage.style.display = 'block';
+        });
+        
+        socket.on('receive-message', (data) => {
+            addMessage(data.username, data.message);
+        });
+        
+        socket.on('user-joined', (username) => {
+            addNotification(`${username} joined the chat`);
+        });
+        
+        socket.on('user-left', (username) => {
+            addNotification(`${username} left the chat`);
+        });
+        
+        socket.on('update-users', (users) => {
+            updateUsersList(users);
+        });
+    </script>
+</body>
+</html>

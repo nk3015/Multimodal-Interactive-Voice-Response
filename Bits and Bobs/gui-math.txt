@@ -1,0 +1,19 @@
+--
+
+Category Theory
+
+Generalized transformation of the information in both directions.
+
+Abstract data types.
+
+Sequence.
+
+Network State Diagram.
+
+Time process.
+
+Abstract the UI details.
+
+Transform the interaction without being stuck in the weeds of the implementation.
+
+--

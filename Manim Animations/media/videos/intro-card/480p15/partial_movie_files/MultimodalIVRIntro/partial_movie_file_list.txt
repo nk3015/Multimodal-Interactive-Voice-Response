@@ -1,0 +1,11 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Nikhil Kartha/OneDrive/Desktop/F21CA Final Presentation/media/videos/intro-card/480p15/partial_movie_files/MultimodalIVRIntro/1185818338_160911177_1334121902.mp4'
+file 'file:C:/Users/Nikhil Kartha/OneDrive/Desktop/F21CA Final Presentation/media/videos/intro-card/480p15/partial_movie_files/MultimodalIVRIntro/624642324_3394500337_546228138.mp4'
+file 'file:C:/Users/Nikhil Kartha/OneDrive/Desktop/F21CA Final Presentation/media/videos/intro-card/480p15/partial_movie_files/MultimodalIVRIntro/624642324_2714998098_2205364769.mp4'
+file 'file:C:/Users/Nikhil Kartha/OneDrive/Desktop/F21CA Final Presentation/media/videos/intro-card/480p15/partial_movie_files/MultimodalIVRIntro/624642324_2520231230_1499856779.mp4'
+file 'file:C:/Users/Nikhil Kartha/OneDrive/Desktop/F21CA Final Presentation/media/videos/intro-card/480p15/partial_movie_files/MultimodalIVRIntro/624642324_3394500337_2146811036.mp4'
+file 'file:C:/Users/Nikhil Kartha/OneDrive/Desktop/F21CA Final Presentation/media/videos/intro-card/480p15/partial_movie_files/MultimodalIVRIntro/624642324_2170917486_3263882212.mp4'
+file 'file:C:/Users/Nikhil Kartha/OneDrive/Desktop/F21CA Final Presentation/media/videos/intro-card/480p15/partial_movie_files/MultimodalIVRIntro/624642324_4217992463_3391286846.mp4'
+file 'file:C:/Users/Nikhil Kartha/OneDrive/Desktop/F21CA Final Presentation/media/videos/intro-card/480p15/partial_movie_files/MultimodalIVRIntro/624642324_2193545784_76616346.mp4'
+file 'file:C:/Users/Nikhil Kartha/OneDrive/Desktop/F21CA Final Presentation/media/videos/intro-card/480p15/partial_movie_files/MultimodalIVRIntro/624642324_2844360058_1263822892.mp4'
+file 'file:C:/Users/Nikhil Kartha/OneDrive/Desktop/F21CA Final Presentation/media/videos/intro-card/480p15/partial_movie_files/MultimodalIVRIntro/624642324_812647956_3032670283.mp4'

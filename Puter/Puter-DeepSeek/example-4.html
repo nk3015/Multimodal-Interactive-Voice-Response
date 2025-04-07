@@ -1,0 +1,32 @@
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+    (async () => {
+        // DeepSeek Chat
+        const chat_resp = await puter.ai.chat(
+            'Solve this puzzle: If you have 9 coins and one is counterfeit (lighter), how can you identify it with just 2 weighings on a balance scale?',
+            {model: 'deepseek-chat', stream: true}
+        );
+        document.write('<h2>DeepSeek Chat Solution:</h2>');
+        for await (const part of chat_resp) {
+            if (part?.text) {
+                document.write(part.text.replaceAll('\n', '<br>'));
+            }
+        }
+
+        // DeepSeek Reasoner
+        const reasoner_resp = await puter.ai.chat(
+            'Solve this puzzle: If you have 9 coins and one is counterfeit (lighter), how can you identify it with just 2 weighings on a balance scale?',
+            {model: 'deepseek-reasoner', stream: true}
+        );
+        document.write('<h2>DeepSeek Reasoner Solution:</h2>');
+        for await (const part of reasoner_resp) {
+            if (part?.text) {
+                document.write(part.text.replaceAll('\n', '<br>'));
+            }
+        }
+    })();
+    </script>
+</body>
+</html>

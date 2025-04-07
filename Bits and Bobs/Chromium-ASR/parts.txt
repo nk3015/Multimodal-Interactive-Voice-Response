@@ -1,0 +1,15 @@
+--
+
+Buttons App + GenUI (x - too complicated to use lang graph)
+Keypad + Intentful LLM
+voice: ASR + TTS
+
+--
+
+Chat
+
+---
+
+
+
+

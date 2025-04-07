@@ -1,0 +1,15 @@
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <img src="https://assets.puter.site/doge.jpeg"/>
+    <script>
+        puter.ai.chat(
+            "What do you see in this image?", 
+            "https://assets.puter.site/doge.jpeg"
+        )
+        .then(response => {
+            puter.print(response);
+        });
+    </script>
+</body>
+</html>

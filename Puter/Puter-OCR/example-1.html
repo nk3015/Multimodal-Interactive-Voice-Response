@@ -1,0 +1,29 @@
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    
+    <div>
+        <h3>Image to Text Converter</h3>
+        <input type="text" id="image-url" placeholder="Enter image URL" 
+               value="https://cdn.handwrytten.com/www/2020/02/home-hero-photo2%402x.png">
+        <button onclick="extractText()">Extract Text</button>
+        <div id="result" style="margin-top: 20px; white-space: pre-wrap;"></div>
+    </div>
+
+    <script>
+        async function extractText() {
+            const imageUrl = document.getElementById('image-url').value;
+            const resultDiv = document.getElementById('result');
+            
+            resultDiv.textContent = 'Processing image...';
+            
+            try {
+                const text = await puter.ai.img2txt(imageUrl);
+                resultDiv.textContent = text || 'No text found in image';
+            } catch (error) {
+                resultDiv.textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

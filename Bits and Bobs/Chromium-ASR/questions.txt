@@ -1,0 +1,7 @@
+How long will the user stay without interacting with the screen?
+
+Do we need automatic movement from screen to screen?
+
+Do the transitions effect the interaction?
+
+How to start voice when new screen is drawn? 
